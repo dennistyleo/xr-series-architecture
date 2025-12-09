@@ -1,104 +1,127 @@
-# XRAD — Extreme Reliability AI Debugger  
-Dennis T.Y. Leo — X-Series Reliability Architecture
+# XRAD — Extreme Reliability AI Debugger
 
----
+X-Series / Physical–AI Reliability Stack
 
-## 1. Mission
+1. Mission — Detect Failures Before They Exist
 
-XRAD is the physical-to-causal debugger of the X-Series Reliability Fabric.
+Modern infrastructure doesn’t collapse because of visible errors.
+It collapses because of margin loss—the silent 15% no monitor captures, no alert reports, and no engineer sees until it becomes an outage.
 
-It is not just a tool.  
-It is an architecture for turning signals, firmware events, and service behavior into a single, auditable reliability language.
+XRAD exists to surface the physics, timing, drift, and semantic shifts that lead to catastrophic cascades.
+It reconstructs causality from the silicon layer upward, restoring the reliability budget long before incidents materialize.
 
-**Goal**
+2. What XRAD Does — Causal Vector Reconstruction
 
-- See failures before they exist  
-- Reconstruct what really happened when they do  
-- Make reliability governable across silicon, board, firmware, OS, and cloud service fabrics
+XRAD ingests signals from thermal, power, SI/PI, SSD behavior, firmware deltas, timing jitter, and semantic/API drift.
+Then it vectorizes the system’s internal state into a causal field, making hidden deterioration measurable.
 
----
+Core functions:
 
-## 2. What XRAD Actually Does
+Rebuilds the path between micro-behaviors and macro-failures
 
-### 2.1 Physical Layer – Signals into Meaning
+Detects pre-failure signatures invisible to dashboards
 
-XRAD vectorizes and reconstructs the true physical state of the system, including:
+Correlates lab results and field behaviors without brute-force data
 
-- Voltage / current margins across rails  
-- Signal- and power-integrity drift (SI/PI)  
-- Thermal decay and hotspot migration  
-- SSD tail latency and wear patterns  
-- Cross-rail instability and timing noise  
+Maps boundary conflicts across silicon ↔ firmware ↔ OS ↔ service layers
 
-The focus is not raw telemetry, but **structured vectors that describe margin and drift**.
+Quantifies risk in real margins—not health scores
 
----
+XRAD does not predict failures. It reveals the causes already in motion.
 
-### 2.2 Firmware / OS / Service Layer – Incident Reconstruction
+3. Why XRAD Exists — Reliability Has No Instrumentation
 
-On top of physical vectors, XRAD rebuilds the event chain that humans can reason about:
+Enterprise and cloud infrastructure have monitoring, logging, and metrics.
+What they lack is causal observability.
 
-- Firmware handoff drift  
-- Driver migration and version skew  
-- Kernel stalls and retry storms  
-- API boundary slippage across services  
-- Service-chain collapse and partial outages  
+Traditional systems measure outcomes.
+XRAD measures conditions that will inevitably produce outcomes:
 
-The result is a **continuous causal trace** that ties “what the user saw” back to “what the hardware and firmware were doing”.
+Thermal margin rot
 
----
+Power-rail edge operation
 
-### 2.3 Causal Fabric Layer – Extreme Reliability Vector (ERV)
+Boundary timing jitter
 
-All XRAD outputs converge into an **Extreme Reliability Vector (ERV)**:
+SerDes eye collapse far before link drop
 
-> A structured, cross-layer causal object that can travel from silicon → board → firmware → OS → CSP fabric → application.
+SSD wear-level instability
 
-ERVs are the fundamental “atoms” the rest of the X-Series components consume for:
+API/firmware semantic divergence
 
-- Governance  
-- Incentives  
-- Long-term reliability economics
+Cross-layer drift that no single team owns
 
----
+The world treats reliability as a mystery.
+XRAD treats it as a measurable physical-AI system.
 
-## 3. Why XRAD Exists
+4. XRAD in the X-Series Architecture
 
-- No-Trouble-Found (NTF) is one of the largest hidden costs in modern infrastructure  
-- Data-center outages are rarely a single bug; they are **drift accumulating over time**  
-- Medical, industrial, and edge-AI systems cannot rely on guesswork in the field  
-- Semiconductor vendors, ODMs/OEMs, CSPs, and operators need a **shared reliability language**  
-- Reliability must become **measurable, auditable, and rewardable**, not just a checkbox
+XRAD is the investigative core of the X-Series Reliability Fabric.
 
-XRAD is the engine that makes this possible.
+Component	Function
+XRBus	Standardizes causal vectors, timing, and contracts across all entities.
+XSM	Non-intrusive signal tap for margin + drift extraction.
+XRAD	Reconstructs failure vectors across physical → logical layers.
+XENOS	Governs boundary handoffs, prevents local drift from becoming systemic failure.
+XSIP	Embedding plane for OEM/ODM platforms integrating XR-level reliability.
+XAPS	Maps real-world incidents into causal chains for operators.
+XRAS	Converts reliability improvements into measurable incentives.
+XRST	Tokenizes reliability outcomes for cross-system settlement.
+XROG	Oversees fleet-scale reliability orbits and vector-field governance.
 
----
+Together, these components form a unified interpretation layer for system reliability.
 
-## 4. XRAD in the X-Series Reliability Fabric
+5. Repository Scope — What Lives Here
 
-XRAD does not live alone. It works inside the X-Series architecture:
+This repository focuses on XRAD’s design, behavior models, and causal-vector architecture.
 
-| Component | Role relative to XRAD |
-|----------|------------------------|
-| **XRBus** | Causal backbone standardizing vectors, timing, and contracts between all X-Series entities. |
-| **XSM**   | Non-intrusive signal/fabric tap layer that feeds physical and logical margins into XRAD. |
-| **XENOS** | Boundary governor that prevents local issues identified by XRAD from escalating into global outages. |
-| **XSIP**  | System Integration Plane for embedding XRAD capabilities into OEM/ODM hardware platforms. |
-| **XAPS**  | Application Problem Solver that turns XRAD’s causal output into human-readable, semantic incident stories. |
-| **XRST / XRAS** | Reliability economy stack that converts XRAD’s improvements into incentives and settlement units. |
-| **XROG**  | Reliability Orbit Governor providing vector-field governance across fleets, regions, and multi-cloud topologies. |
+Included:
 
-XRAD is the **bridge between the physical world and the governance/economic layers**.
+Causal field definitions and vector grammar
 
----
+XRAD ingest model for physical + semantic drift
 
-## 5. Repository Scope (Initial Layout)
+Pre-failure signature taxonomy
 
-```text
-xr-series-architecture/
- └── xrad/
-      ├── README.md          # Concept, scope, and architecture (this file)
-      ├── diagrams/          # Architecture diagrams, flows, vector maps
-      ├── specs/             # ERV format, tap definitions, causal rules
-      ├── examples/          # Case studies: NTF, thermal drift, SI decay, etc.
-      └── drafts/            # Whitepaper fragments, research notes, design logs
+Boundary-conflict reconstruction
+
+Engine behavior across silicon → board → OS → service
+
+Integration points with XSIP, XSM, XAPS, XENOS
+
+This is not a software release.
+It is the reference architecture for an emerging reliability discipline.
+
+6. Design Principles
+
+Margins speak louder than metrics
+Reliability must be measured where deterioration begins, not where it ends.
+
+Causality over correlation
+XRAD reconstructs why failures occur, not just when.
+
+Boundary-first interpretation
+Most failures hide at the handoff between domains; XRAD is engineered for these seams.
+
+Non-intrusive observability
+XRAD extracts truth without altering system behavior or perturbing timing.
+
+Physical + semantic unity
+Real failures bridge both physics and intent; XRAD models both simultaneously.
+
+Prevention as the economic engine
+Averted failures can be tokenized (XRST) and incentivized (XRAS).
+
+7. Links and Signature
+
+LinkedIn
+https://linkedin.com/in/dennisleo
+
+Website / Engineering Journal
+https://dennisleo.com
+
+ORCID
+https://orcid.org/0009-0007-1061-8831
+
+“Reliability is not a metric. It is the physics beneath the system.”
+— Dennis T.Y. Leo
