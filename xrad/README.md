@@ -1,4 +1,4 @@
-# XRAD — Extreme Reliability AI Debugger
+XRAD — Extreme Reliability AI Debugger
 
 X-Series / Physical–AI Reliability Stack
 
@@ -118,9 +118,13 @@ LinkedIn
 https://linkedin.com/in/dennisleo
 
 Website / Engineering Journal
-https://dennisleo.com
+(https://dennisleo.com/watchers-over-the-frontiers-of-innovation)
 
 ORCID
+https://orcid.org/0009-0007-1061-8831
+
+“Reliability is not a metric. It is the physics beneath the system.”
+— Dennis T.Y. Leo
 https://orcid.org/0009-0007-1061-8831
 
 “Reliability is not a metric. It is the physics beneath the system.”
