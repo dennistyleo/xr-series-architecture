@@ -83,7 +83,7 @@ XAPS translates real incidents into solvable causal graphs.
 ## 🔗 Links
 
 - **LinkedIn:** https://linkedin.com/in/dennisleo  
-- **Website / Journal:** https://dennisleo.com  
+- **Website / Journal:** (https://dennisleo.com/watchers-over-the-frontiers-of-innovation)
 - **ORCID:** https://orcid.org/0009-0007-1061-8831  
 
 ---
